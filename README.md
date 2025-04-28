@@ -1,51 +1,51 @@
-# Instalação do **TLauncher v14** no Linux (Debian e Derivados)
+# Installation of **TLauncher v14** on Linux (Debian and Derivatives)
 
-Este repositório oferece um **script automatizado** para a instalação do **TLauncher**, o launcher de Minecraft, em distribuições baseadas no Debian (como Ubuntu, Mint, etc.).
+This repository provides an **automated script** for installing **TLauncher**, the Minecraft launcher, on Debian-based distributions (such as Ubuntu, Mint, etc.).
 
-## 🚀 Instalação Automática
+## 🚀 Automated Installation
 
-Para uma instalação rápida e simples, basta rodar o seguinte comando no terminal:
+For a quick and simple installation, just run the following command in the terminal:
 
 ```bash
 bash -c "$(wget -qLO - https://raw.githubusercontent.com/rafaelhschuh/TLauncher-install-linux/refs/heads/main/install.sh)"
 ```
 
-O **script** irá realizar todo o processo automaticamente, incluindo:
+The **script** will handle the entire process automatically, including:
 
-- Instalação do **Java**
-- Download do **TLauncher**
-- Criação do atalho no menu de aplicativos
+- Installing **Java**
+- Downloading **TLauncher**
+- Creating a shortcut in the application menu
 
-## 🛠️ Passo a Passo Manual
+## 🛠️ Manual Step-by-Step
 
-Se preferir fazer a instalação manualmente, siga os passos abaixo:
+If you prefer to install manually, follow the steps below:
 
-### 1. Baixar o arquivo do TLauncher
+### 1. Download the TLauncher File
 
-Baixe o arquivo **ZIP** do TLauncher com o comando:
+Download the **ZIP** file of TLauncher using the command:
 
 ```bash
 wget -O minecraft.zip https://raw.githubusercontent.com/rafaelhschuh/TLauncher-install-linux/refs/heads/main/minecraft.zip
 ```
 
-### 2. Verificar a instalação do Java
+### 2. Check Java Installation
 
-O TLauncher requer o **Java**. Para verificar se já está instalado, use o comando:
+TLauncher requires **Java**. To check if it is already installed, use the command:
 
 ```bash
 java -version
 ```
 
-Se não estiver instalado, basta executar:
+If it's not installed, just run:
 
 ```bash
 sudo apt update
 sudo apt install -y openjdk-17-jre
 ```
 
-### 3. Extrair os arquivos do TLauncher
+### 3. Extract the TLauncher Files
 
-Crie uma pasta para a instalação e extraia o arquivo **ZIP**:
+Create a folder for the installation and extract the **ZIP** file:
 
 ```bash
 mkdir -p $HOME/TLauncher
@@ -53,16 +53,16 @@ unzip -o minecraft.zip -d $HOME/TLauncher
 rm minecraft.zip
 ```
 
-### 4. Criar o atalho no menu de aplicativos
+### 4. Create the Shortcut in the Application Menu
 
-Para adicionar o **atalho** no menu de aplicativos, crie o arquivo `.desktop` com o seguinte comando:
+To add the **shortcut** in the application menu, create the `.desktop` file using the following command:
 
 ```bash
 mkdir -p ~/.local/share/applications
 cat <<EOL > ~/.local/share/applications/tlauncher.desktop
 [Desktop Entry]
 Name=TLauncher Minecraft
-Comment=Launcher de Minecraft
+Comment=Minecraft Launcher
 Exec=java -jar $HOME/TLauncher/TLauncher.jar
 Icon=$HOME/TLauncher/minecraft.png
 Terminal=false
@@ -71,34 +71,34 @@ Categories=Game;
 EOL
 ```
 
-### 5. Dar permissão de execução
+### 5. Grant Execution Permission
 
-Conceda permissão de execução ao arquivo `.desktop`:
+Grant execution permission to the `.desktop` file:
 
 ```bash
 chmod +x ~/.local/share/applications/tlauncher.desktop
 ```
 
-### 6. Atualizar o banco de dados de atalhos
+### 6. Update the Shortcut Database
 
-Atualize o banco de dados de atalhos para que o **TLauncher** apareça no menu:
+Update the shortcut database so that **TLauncher** appears in the menu:
 
 ```bash
 update-desktop-database ~/.local/share/applications/
 ```
 
-### 7. Concluir a instalação
+### 7. Complete the Installation
 
-Agora, o **TLauncher** está instalado! Abra o menu de aplicativos e procure por "TLauncher Minecraft".
+Now, **TLauncher** is installed! Open the application menu and search for "TLauncher Minecraft".
 
-## ❓ Suporte
+## ❓ Support
 
-Caso tenha dúvidas ou encontre algum problema, não hesite em abrir uma **issue** no [repositório GitHub](https://github.com/rafaelhschuh/TLauncher-install-linux).
+If you have any questions or encounter issues, feel free to open an **issue** on the [GitHub repository](https://github.com/rafaelhschuh/TLauncher-install-linux).
 
-## 📜 Licença
+## 📜 License
 
-Este projeto está licenciado sob a **Licença MIT**.
+This project is licensed under the **MIT License**.
 
 ---
 
-Essa versão melhora a apresentação com ícones, separação clara entre as seções e uma organização visual mais atraente.
+This version enhances presentation with icons, clear section separation, and a more visually appealing layout.

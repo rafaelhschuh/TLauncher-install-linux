@@ -1,6 +1,6 @@
 #!/bin/bash
-# Script para instalar o TLauncher como aplicativo no Linux
-# Este script foi desenvolvido para Debian e derivados (Ubuntu, Mint, etc.)
+# Script to install TLauncher as an application on Linux
+# This script was developed for Debian and derivatives (Ubuntu, Mint, etc.)
 
 # @@@@@@@@@@@@                           @@@@@@@@@@@
 # @@@@@@@@@@@@                           @@@@@@@@@@@
@@ -23,60 +23,60 @@
 # @@@@@@@@@@@@                           @@@@@@@@@@@
 # @@@@@@@@@@@@       schuh.dev.br        @@@@@@@@@@@
 
-# Variáveis
+# Variables
 LINK_DOWNLOAD="https://raw.githubusercontent.com/rafaelhschuh/TLauncher-install-linux/refs/heads/main/minecraft.zip"
-PASTA_INSTALACAO="$HOME/TLauncher"
+INSTALL_FOLDER="$HOME/TLauncher"
 DESKTOP_FILE="$HOME/.local/share/applications/tlauncher.desktop"
 
 clear
 echo "========================================="
-echo " INSTALADOR DO TLAUNCHER (LINUX - Debian)"
+echo "  TLAUNCHER INSTALLER (LINUX - Debian)   "
 echo "      by: github.com/rafaelhschuh        "
 echo "========================================="
 
-# Passo 1: Baixar o minecraft.zip
-echo "\n>>> Baixando o TLauncher..."
+# Step 1: Download minecraft.zip
+echo ">>> Downloading TLauncher..."
 wget -O minecraft.zip "$LINK_DOWNLOAD"
 
-# Passo 2: Instalar o Java (se não instalado)
-echo "\n>>> Verificando instalação do Java..."
+# Step 2: Install Java (if not installed)
+echo ">>> Checking Java installation..."
 if ! java -version &>/dev/null; then
-  echo "-> Java não encontrado. Instalando..."
+  echo "-> Java not found. Installing..."
   sudo apt update
   sudo apt install -y openjdk-17-jre
 else
-  echo "-> Java já está instalado."
+  echo "-> Java is already installed."
 fi
 
-# Passo 3: Extrair o ZIP
-echo "\n>>> Extraindo arquivos..."
-mkdir -p "$PASTA_INSTALACAO"
-unzip -o minecraft.zip -d "$PASTA_INSTALACAO"
+# Step 3: Extract ZIP
+echo ">>> Extracting files..."
+mkdir -p "$INSTALL_FOLDER"
+unzip -o minecraft.zip -d "$INSTALL_FOLDER"
 rm minecraft.zip
 
-# Passo 4: Criar o arquivo .desktop
-echo "\n>>> Criando atalho no menu..."
+# Step 4: Create .desktop file
+echo ">>> Creating shortcut in menu..."
 mkdir -p ~/.local/share/applications
 cat <<EOL > "$DESKTOP_FILE"
 [Desktop Entry]
 Name=TLauncher Minecraft
-Comment=Launcher de Minecraft
-Exec=java -jar $PASTA_INSTALACAO/TLauncher.jar
-Icon=$PASTA_INSTALACAO/minecraft.png
+Comment=Minecraft Launcher
+Exec=java -jar $INSTALL_FOLDER/TLauncher.jar
+Icon=$INSTALL_FOLDER/minecraft.png
 Terminal=false
 Type=Application
 Categories=Game;
 EOL
 
-# Passo 5: Dar permissão
+# Step 5: Grant permission
 chmod +x "$DESKTOP_FILE"
 
-# Passo 6: Atualizar banco de dados de atalhos
-echo "\n>>> Atualizando atalhos..."
+# Step 6: Update shortcut database
+echo "\n>>> Updating shortcuts..."
 update-desktop-database ~/.local/share/applications/
 
-# Fim
-echo "\n========================================="
-echo "TLauncher instalado com sucesso! \U0001F389"
-echo "Abra o menu de aplicativos e procure por 'TLauncher Minecraft'."
-echo "========================================="
+# End
+echo "========================================================="
+echo "TLauncher installed successfully! \U0001F389"
+echo "Open the application menu and search for 'TLauncher Minecraft'."
+echo "========================================================="
