@@ -62,7 +62,7 @@ cat <<EOL > "$DESKTOP_FILE"
 Name=TLauncher Minecraft
 Comment=Launcher de Minecraft
 Exec=java -jar $PASTA_INSTALACAO/TLauncher.jar
-Icon=$PASTA_INSTALACAO/icon.png
+Icon=$PASTA_INSTALACAO/minecraft.png
 Terminal=false
 Type=Application
 Categories=Game;

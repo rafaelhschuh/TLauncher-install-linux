@@ -7,7 +7,7 @@ Este repositório oferece um **script automatizado** para a instalação do **TL
 Para uma instalação rápida e simples, basta rodar o seguinte comando no terminal:
 
 ```bash
-sudo bash -c "$(wget -qLO - https://raw.githubusercontent.com/rafaelhschuh/TLauncher-install-linux/refs/heads/main/install.sh)"
+bash -c "$(wget -qLO - https://raw.githubusercontent.com/rafaelhschuh/TLauncher-install-linux/refs/heads/main/install.sh)"
 ```
 
 O **script** irá realizar todo o processo automaticamente, incluindo:
@@ -64,7 +64,7 @@ cat <<EOL > ~/.local/share/applications/tlauncher.desktop
 Name=TLauncher Minecraft
 Comment=Launcher de Minecraft
 Exec=java -jar $HOME/TLauncher/TLauncher.jar
-Icon=$HOME/TLauncher/icon.png
+Icon=$HOME/TLauncher/minecraft.png
 Terminal=false
 Type=Application
 Categories=Game;
